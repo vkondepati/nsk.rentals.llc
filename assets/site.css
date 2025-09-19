@@ -1,0 +1,4 @@
+
+/* Custom tweaks in addition to Tailwind CDN */
+html { scroll-behavior: smooth; }
+.sticky-cta { position: sticky; bottom: 0; }

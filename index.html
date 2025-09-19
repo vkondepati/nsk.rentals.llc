@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NSK Rentals LLC — Event Rentals in Frisco, TX</title>
+  <meta name="description" content="NSK Rentals LLC offers affordable tables, chairs, tents, and event accessories in Frisco, TX. Delivery or pickup. Zelle accepted." />
+  <meta property="og:title" content="NSK Rentals LLC — Event Rentals" />
+  <meta property="og:description" content="Tables, chairs, tents & more. Order online. Zelle accepted." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    /* Minimal custom styles */
+    .card-shadow { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Config -->
+  <script>
+    const CONFIG = {
+      BUSINESS_NAME: "NSK Rentals LLC",
+      BUSINESS_PHONE: "+1 469 591 8117", // add later if you like
+      BUSINESS_EMAIL: "nsk.rentals2025@gmail.com", // add later if you like
+      ZELLE_EMAIL: "nsk.rentals2025@gmail.com",
+      PICKUP_ADDRESS: "13243 Teton St. Frisco TX - 75035",
+      CITY: "Frisco, TX",
+      GOOGLE_FORM_URL: "https://forms.gle/wXc4HqZP9BBXeMrT7" // paste your actual Google Form prefill URL here
+    };
+
+    // Map your desired query keys to Google Form entry IDs (replace with real entry IDs)
+    // Example: 'rect_tables': 'entry.1234567890'
+    const GOOGLE_FORM_ENTRY_MAP = {
+      name: null,
+      email_or_phone: null,
+      address: null,
+      rect_tables: null,
+      round_tables: null,
+      chairs: null,
+      tents: null,
+      tarps: null,
+      backdrop: null,
+      dates: null,
+      payment_method: null
+    };
+  </script>
+
+  <!-- Hero -->
+  <header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">{{ CONFIG.BUSINESS_NAME }}</h1>
+      <nav class="space-x-4">
+        <a href="#products" class="text-sm font-medium hover:underline">Products</a>
+        <a href="#contact" class="text-sm font-medium hover:underline">Contact</a>
+        <a id="orderNowTop" href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">Order Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="bg-blue-50">
+    <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Tables, Chairs, Tents & More</h2>
+        <p class="text-lg text-gray-700 mb-6">Affordable, reliable rentals in {{ CONFIG.CITY }}. Delivery or pickup available.</p>
+        <div class="space-x-3">
+          <a href="#products" class="bg-gray-900 text-white px-5 py-3 rounded-md">Browse Rentals</a>
+          <a id="orderNowHero" href="#" class="bg-blue-600 text-white px-5 py-3 rounded-md">Order Now</a>
+        </div>
+        <p class="mt-4 text-sm text-gray-600">Simple 3 steps: Choose items → Submit order form → Pay via Zelle at <strong>{{ CONFIG.ZELLE_EMAIL }}</strong>.</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl card-shadow">
+        <h3 class="text-xl font-semibold mb-2">Weekend Special</h3>
+        <p class="text-gray-700">Ask about discounts on chair bundles!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <main id="products" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-6">Products</h2>
+    <div id="productGrid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+    <div class="sticky-cta bg-white border-t mt-8 p-4">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <p class="text-sm text-gray-600">Build your order below, then submit via Google Form.</p>
+        <button id="proceedBtn" class="bg-blue-600 text-white px-5 py-3 rounded-md">Proceed to Order</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Contact & Payment -->
+  <section id="contact" class="bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-3">Contact</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong>Business:</strong> {{ CONFIG.BUSINESS_NAME }}</li>
+          <li><strong>Phone:</strong> <span id="bizPhone">{{ CONFIG.BUSINESS_PHONE || "—" }}</span></li>
+          <li><strong>Email:</strong> <span id="bizEmail">{{ CONFIG.BUSINESS_EMAIL || "—" }}</span></li>
+          <li><strong>Pickup Address:</strong> <span id="addr">{{ CONFIG.PICKUP_ADDRESS }}</span>
+            · <a id="mapLink" class="text-blue-700 underline" target="_blank" rel="noopener">View in Maps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-3">Payment</h3>
+        <p class="text-gray-700">Pay with <strong>Zelle</strong> at:</p>
+        <p class="text-2xl font-extrabold text-purple-700">{{ CONFIG.ZELLE_EMAIL }}</p>
+        <p class="text-sm text-gray-600 mt-3">Payment methods also accepted: Card / Cash (confirm availability). Final quote confirmed after form submission.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm text-gray-600 py-6">
+    &copy; 2025 NSK Rentals LLC · Made with ♥ in Frisco, TX
+  </footer>
+
+  <script>
+    // Render products from products.json
+    const productGrid = document.getElementById('productGrid');
+    const quantities = {}; // track selections
+
+    function makeQtyControl(id) {
+      const wrapper = document.createElement('div');
+      wrapper.className = "mt-3 flex items-center space-x-2";
+      const label = document.createElement('label');
+      label.htmlFor = "qty-" + id;
+      label.className = "text-sm text-gray-700";
+      label.textContent = "Quantity";
+      const input = document.createElement('input');
+      input.type = "number";
+      input.min = "0";
+      input.step = "1";
+      input.value = "0";
+      input.id = "qty-" + id;
+      input.className = "w-20 border rounded px-2 py-1";
+      input.addEventListener('input', () => {
+        quantities[id] = parseInt(input.value || "0", 10);
+      });
+      wrapper.appendChild(label);
+      wrapper.appendChild(input);
+      return wrapper;
+    }
+
+    fetch('products.json')
+      .then(r => r.json())
+      .then(products => {
+        products.forEach(p => {
+          const card = document.createElement('div');
+          card.className = "bg-white rounded-xl card-shadow overflow-hidden flex flex-col";
+
+          const img = document.createElement('img');
+          img.src = "images/" + p.img;
+          img.alt = p.name;
+          img.className = "w-full h-48 object-cover";
+          card.appendChild(img);
+
+          const body = document.createElement('div');
+          body.className = "p-4 flex-1 flex flex-col";
+          const title = document.createElement('h4');
+          title.className = "font-semibold text-lg";
+          title.textContent = p.name;
+          const price = document.createElement('div');
+          price.className = "text-blue-700 font-bold mt-1";
+          price.textContent = `$ ${p.price.toFixed(2)} / ${p.unit}`;
+          const desc = document.createElement('p');
+          desc.className = "text-sm text-gray-700 mt-2 flex-1";
+          desc.textContent = p.description;
+
+          body.appendChild(title);
+          body.appendChild(price);
+          body.appendChild(desc);
+          body.appendChild(makeQtyControl(p.id));
+
+          card.appendChild(body);
+          productGrid.appendChild(card);
+        });
+      })
+      .catch(err => {
+        productGrid.innerHTML = "<p class='text-red-600'>Couldn't load products.</p>";
+        console.error(err);
+      });
+
+    // Build Google Form prefill URL
+    function buildPrefillURL() {
+      if (!CONFIG.GOOGLE_FORM_URL) return null;
+
+      const params = new URLSearchParams();
+
+      // Map quantities to expected query keys for your form
+      // Example mapping you can adopt in your form's prefill:
+      // Rectangle Tables -> rect_tables, Round Tables -> round_tables, etc.
+      const qtyMap = {
+        'rect-table-6ft': 'rect_tables',
+        'round-table-60in': 'round_tables',
+        'folding-chair': 'chairs',
+        'canopy-tent-10x20': 'tents',
+        'tarp-10x12': 'tarps',
+        'backdrop-stand': 'backdrop'
+      };
+
+      Object.entries(quantities).forEach(([pid, qty]) => {
+        if (!qty || qty <= 0) return;
+        const key = qtyMap[pid];
+        if (!key) return;
+
+        // If you have real entry IDs, map with GOOGLE_FORM_ENTRY_MAP; else, pass as simple query keys
+        const entryId = GOOGLE_FORM_ENTRY_MAP[key];
+        if (entryId) {
+          params.set(entryId, String(qty));
+        } else {
+          // fallback: append as custom params (useful if your form handles them or for reference)
+          params.set(key, String(qty));
+        }
+      });
+
+      const url = new URL(CONFIG.GOOGLE_FORM_URL);
+      // For new Forms, prefill often uses 'viewform' with query entries like entry.XXXX
+      url.search = params.toString();
+      return url.toString();
+    }
+
+    function openOrderForm() {
+      const url = buildPrefillURL() || CONFIG.GOOGLE_FORM_URL || "#";
+      if (url && url !== "#") window.open(url, "_blank");
+      else alert("Please configure GOOGLE_FORM_URL in the site config.");
+    }
+
+    document.getElementById('proceedBtn').addEventListener('click', openOrderForm);
+    document.getElementById('orderNowTop').addEventListener('click', (e) => { e.preventDefault(); openOrderForm(); });
+    document.getElementById('orderNowHero').addEventListener('click', (e) => { e.preventDefault(); openOrderForm(); });
+
+    // Map link
+    const mapLink = document.getElementById('mapLink');
+    const addr = encodeURIComponent(CONFIG.PICKUP_ADDRESS);
+    mapLink.href = "https://maps.google.com/?q=" + addr;
+  </script>
+</body>
+</html>

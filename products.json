@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rect-table-6ft",
+    "name": "Rectangle Table (6 ft)",
+    "price": 5.0,
+    "unit": "each",
+    "img": "rect-table-6ft.jpg",
+    "description": "Seats 6\u20138. Sturdy folding table for parties and events."
+  },
+  {
+    "id": "round-table-60in",
+    "name": "Round Table (60 in)",
+    "price": 5.0,
+    "unit": "each",
+    "img": "round-table-60in.jpg",
+    "description": "Seats 8\u201310. Popular for banquets and weddings."
+  },
+  {
+    "id": "folding-chair",
+    "name": "Folding Chair",
+    "price": 1,
+    "unit": "each",
+    "img": "folding-chair.jpg",
+    "description": "Lightweight and durable. White plastic with metal frame."
+  },
+  {
+    "id": "canopy-tent-10x20",
+    "name": "Tent (10x20)",
+    "price": 10,
+    "unit": "per day",
+    "img": "tent-10x20.jpg",
+    "description": "Provides shade and weather protection. Setup available."
+  },
+  {
+    "id": "tarp-10x12",
+    "name": "Tarp (10x12)",
+    "price": 5.0,
+    "unit": "each",
+    "img": "tarp-10x12.jpg",
+    "description": "Multi-purpose covering for floors or equipment."
+  },
+  {
+    "id": "backdrop-stand",
+    "name": "Event Backdrop Stand",
+    "price": 5.0,
+    "unit": "per day",
+    "img": "backdrop-stand.jpg",
+    "description": "Adjustable frame for photo backdrops and signage."
+  }
+]
