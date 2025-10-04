@@ -42,6 +42,29 @@
       dates: null,
       payment_method: null
     };
+
+    // Process template variables on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Find all text nodes and replace template variables
+      function processTemplates(element) {
+        if (element.nodeType === Node.TEXT_NODE) {
+          let text = element.textContent;
+          // Replace {{ CONFIG.PROPERTY }} with actual values
+          text = text.replace(/\{\{\s*CONFIG\.(\w+)\s*(?:\|\|\s*"([^"]*)")?\s*\}\}/g, function(match, property, fallback) {
+            const value = CONFIG[property];
+            return value !== undefined ? value : (fallback || match);
+          });
+          if (text !== element.textContent) {
+            element.textContent = text;
+          }
+        } else if (element.nodeType === Node.ELEMENT_NODE) {
+          // Process child nodes
+          Array.from(element.childNodes).forEach(processTemplates);
+        }
+      }
+      
+      processTemplates(document.body);
+    });
   </script>
 
   <!-- Hero -->
@@ -150,7 +173,7 @@
           const img = document.createElement('img');
           img.src = "images/" + p.img;
           img.alt = p.name;
-          img.className = "w-full h-48 object-cover";
+          img.className = "w-full h-48 object-contain bg-gray-50";
           card.appendChild(img);
 
           const body = document.createElement('div');
